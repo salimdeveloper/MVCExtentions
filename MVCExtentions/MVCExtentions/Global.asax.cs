@@ -1,4 +1,5 @@
 ﻿using MVCExtentions.App_Start;
+using MVCExtentions.Infrastructure.Extentions.ModelBinder;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -11,6 +12,8 @@ namespace MVCExtentions
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
+            ModelBinderProviders.BinderProviders.Insert(0, new XMLModelBinderProvider());
         }
     }
 }
